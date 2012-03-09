@@ -131,7 +131,7 @@ end
 
 #Create a new Mechanize agent and open the Rand Database main page
 agent = Mechanize.new();
-agent.idle_timeout = 0.9; #This corrects a "too many connection resets" error
+agent.idle_timeout = 0.1; #This corrects a "too many connection resets" error
 page = agent.get(randDatabaseURL);
 
 #Submit the form to get the list of links to incidents
