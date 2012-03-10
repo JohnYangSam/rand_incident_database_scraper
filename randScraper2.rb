@@ -147,7 +147,7 @@ while(year <= currentYear)
 
   #Create a new Mechanize agent and open the Rand Database main page
   agent = Mechanize.new();
-  agent.idle_timeout = 0.1; #This corrects a "too many connection resets" error
+  agent.read_timeout = 3;
   page = agent.get(randDatabaseURL);
 
   incidents_page = submitIncidentForm(page, year, year + 5);
