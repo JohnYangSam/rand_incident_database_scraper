@@ -142,20 +142,15 @@ rescue
   abort("Aborted to prevent overwriting files");
 end
 
-
-
-
-
-#USE RUBY TIME TO START AND THE BEGINNING AND WORK UP!
-
 year = databaseStartYear;
 while(year <= currentYear)
-  incidents_page = submitIncidentForm(page, year, year + 5);
 
   #Create a new Mechanize agent and open the Rand Database main page
   agent = Mechanize.new();
   agent.idle_timeout = 0.1; #This corrects a "too many connection resets" error
   page = agent.get(randDatabaseURL);
+
+  incidents_page = submitIncidentForm(page, year, year + 5);
 
   #Get and process each link
   doc = Nokogiri::HTML(incidents_page.body);
