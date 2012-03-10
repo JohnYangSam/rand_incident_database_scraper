@@ -160,7 +160,7 @@ while(year <= currentYear)
   end
 
   year += 5;
-
+  sleep(5);
 end
 
 #Close output file
