@@ -155,12 +155,13 @@ while(year <= currentYear)
   #Get and process each link
   doc = Nokogiri::HTML(incidents_page.body);
   doc.css("div#content > div#indent > ol > li > a").each do |node|
+    sleep(rand); # To prevent connection timed out
     incident_page = Mechanize::Page::Link.new(node, agent, page).click();
     processIncidentPage(agent, incident_page, output);
   end
 
   year += 5;
-  sleep(5);
+
 end
 
 #Close output file
